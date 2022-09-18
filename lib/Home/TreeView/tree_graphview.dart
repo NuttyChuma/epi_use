@@ -180,7 +180,7 @@ class _TreeViewPageState extends State<TreeViewPage> {
                   const Text('About:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
                   const SizedBox(height: 5.0,),
                   if (globals.users![index]['about'] != null)
-                    Text('Salary: ${globals.users![index]['about']}'),
+                    Text('${globals.users![index]['about']}'),
                   const SizedBox(height: 5.0,),
                 ],
               ),

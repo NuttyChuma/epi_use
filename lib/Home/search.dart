@@ -374,7 +374,7 @@ class _SearchState extends State<Search> {
                   const Text('About:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
                   const SizedBox(height: 5.0,),
                   if (users[index]['about'] != null)
-                    Text('Salary: ${users[index]['about']}'),
+                    Text('${users[index]['about']}'),
                 ],
               ),
             ),
