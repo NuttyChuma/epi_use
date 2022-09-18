@@ -134,7 +134,9 @@ class ExampleSidebarX extends StatelessWidget {
           height: 100,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset('EPI-USE-logo.png'),
+            child: Image.network('https://firebasestorage.googleapis.com/v0/b/'
+                'epi-use-7727b.appspot.com/o/files%2FEPI-USE-logo-no-way-you-have-a-file-named-exactly-like-this-one.png?'
+                'alt=media&token=e8acfd2f-804a-43'),
           ),
         );
       },
