@@ -53,7 +53,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         final storageRef = FirebaseStorage.instance.ref();
         String imageUrl =
             await storageRef.child('files/$fileName/').getDownloadURL();
-        String uri = "http://192.168.7.225:5000/";
+        String uri = "https://pacific-fortress-04227.herokuapp.com/";
         await http.post(Uri.parse("${uri}addUserImage"),
             headers: <String, String>{
               "Accept": "application/json",
@@ -158,7 +158,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             fabChild = const CircularProgressIndicator(color: Colors.white,);
             disableFab = true;
           });
-          String uri = "http://192.168.7.225:5000/";
+          String uri = "https://pacific-fortress-04227.herokuapp.com/";
           debugPrint(updatedName!);
           debugPrint(updatedEmail!);
           debugPrint(updatedAbout!);

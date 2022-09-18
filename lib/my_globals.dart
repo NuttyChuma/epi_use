@@ -17,7 +17,7 @@ String? about;
 String? imageUrl;
 
 Future<void> getUsers() async {
-  String uri = "http://192.168.7.225:5000/";
+  String uri = "https://pacific-fortress-04227.herokuapp.com/";
   var result = await http.get(
     Uri.parse("${uri}getUsers"),
     headers: <String, String>{

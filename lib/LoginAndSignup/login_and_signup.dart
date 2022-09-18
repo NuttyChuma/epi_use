@@ -8,7 +8,7 @@ import '../my_globals.dart' as globals;
 import '../Home/app.dart';
 
 // Uri to the API
-String uri = "http://192.168.7.225:5000/";
+String uri = "https://pacific-fortress-04227.herokuapp.com/";
 
 // data to send
 String? nUsername, nEmail, nDepartment, nSalary, nManager, nDateOfBirth, nEmpNum, imageUrl, about, updatedEmail;
@@ -126,8 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<String?> _recoverPassword(String name) async {
     debugPrint('Name: $name');
+
     return Future.delayed(loginTime).then((_) {
-      return null;
+      return "Not Working Yet";
     });
   }
 
@@ -294,8 +295,7 @@ class _LoginScreenState extends State<LoginScreen> {
         recoverPasswordDescription: "We will send a link to the email account.",
         recoverPasswordSuccess: 'If your account exists email has been sent!',
         additionalSignUpFormDescription: "Fill in this form to complete signup",
-        signUpSuccess: "A verification link has been sent."
-            "\nCHECK IN YOUR SPAM EMAILS TOO!!!",
+        signUpSuccess: "Successfully signed up",
       ),
     );
   }

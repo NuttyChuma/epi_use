@@ -124,7 +124,7 @@ class _RemovePeopleUnderYouState extends State<RemovePeopleUnderYou> {
               }
             }
 
-            String uri = "http://192.168.7.225:5000/";
+            String uri = "https://pacific-fortress-04227.herokuapp.com/";
             await http.post(Uri.parse("${uri}removeUsersUnder"),
                 headers: <String, String>{
                   "Accept": "application/json",
