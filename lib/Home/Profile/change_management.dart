@@ -38,7 +38,6 @@ class _ChangeManagementState extends State<ChangeManagement> {
       }
       return false;
     }).toList();
-    debugPrint('$listWithNoUser');
     setState(() => listWithNoUser = suggestions);
   }
 
@@ -99,7 +98,6 @@ class _ChangeManagementState extends State<ChangeManagement> {
             });
             List children = List.from(globals.users!);
             final suggestions = children.where((child) {
-              debugPrint('$child');
               if (child['manager'] != null) {
                 final childManager = child['manager'].toLowerCase();
                 final manager = globals.email!.toLowerCase();
@@ -147,7 +145,6 @@ class _ChangeManagementState extends State<ChangeManagement> {
 
   getUsers() async {
     await globals.getUsers();
-    debugPrint('called');
     setState(() {});
     Navigator.pop(context);
   }

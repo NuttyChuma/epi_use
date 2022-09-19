@@ -36,13 +36,11 @@ class _AddPeopleUnderYouState extends State<AddPeopleUnderYou> {
       }
       return false;
     }).toList();
-    debugPrint('$listWithNoUser');
     setState(() => listWithNoUser = suggestions);
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(globals.email!);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select People You Want To Add Under You'),
