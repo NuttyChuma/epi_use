@@ -416,7 +416,10 @@ class _SearchState extends State<Search> {
                       users = globals.users!;
                       setState(() {});
                     },
-                    child: const Text('Edit'))
+                    child: const Text('Edit')),
+              ElevatedButton(onPressed: (){
+                Navigator.pop(context);
+              }, child: const Text('Close')),
             ],
           );
         });

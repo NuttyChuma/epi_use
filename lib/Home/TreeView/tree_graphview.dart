@@ -193,6 +193,9 @@ class _TreeViewPageState extends State<TreeViewPage> {
                       builder: (context) => const EditProfilePage()));
                   setState(() {});
                 }, child: const Text('Edit')),
+              ElevatedButton(onPressed: (){
+                Navigator.pop(context);
+              }, child: const Text('Close')),
             ],
           );
         });
