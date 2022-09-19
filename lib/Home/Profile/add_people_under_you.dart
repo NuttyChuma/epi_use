@@ -19,6 +19,28 @@ class _AddPeopleUnderYouState extends State<AddPeopleUnderYou> {
   bool uploading = false;
 
   @override
+  void initState() {
+    filterChildren();
+    super.initState();
+  }
+  List listWithNoUser = List.from(globals.users!);
+  void filterChildren() {
+    listWithNoUser = List.from(globals.users!);
+    final suggestions = listWithNoUser.where((user) {
+      // debugPrint('$users');
+      if (user['manager'] != null) {
+        final userEmail = user['email'].toLowerCase();
+        final currUserEmail = globals.email!.toLowerCase();
+
+        return userEmail != currUserEmail;
+      }
+      return false;
+    }).toList();
+    debugPrint('$listWithNoUser');
+    setState(() => listWithNoUser = suggestions);
+  }
+
+  @override
   Widget build(BuildContext context) {
     debugPrint(globals.email!);
     return Scaffold(
@@ -36,31 +58,31 @@ class _AddPeopleUnderYouState extends State<AddPeopleUnderYou> {
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         padding: const EdgeInsets.only(top: 16.0),
-        itemCount: globals.users!.length,
+        itemCount: listWithNoUser.length,
         itemBuilder: (context, index) => Card(
           child: Center(
             child: ListTile(
               selectedTileColor: Colors.grey,
               selected:
-                  (selected.contains(globals.users![index])) ? true : false,
+                  (selected.contains(listWithNoUser[index])) ? true : false,
               isThreeLine: true,
               leading: CircleAvatar(
                 radius: 20.0,
                 backgroundColor: Colors.transparent,
                 backgroundImage: NetworkImage(
-                    Gravatar(globals.users![index]['email']).imageUrl()),
+                    Gravatar(listWithNoUser[index]['email']).imageUrl()),
               ),
-              title: Text(globals.users![index]['full_name']),
-              subtitle: (globals.users![index]['updatedEmail'] == null)
+              title: Text(listWithNoUser[index]['full_name']),
+              subtitle: (listWithNoUser[index]['updatedEmail'] == null)
                   ? Text(
-                      'Email: ${globals.users![index]['email']}\nWorks in: ${globals.users![index]['department']}')
+                      'Email: ${listWithNoUser[index]['email']}\nWorks in: ${listWithNoUser[index]['department']}')
                   : Text(
-                      'Email: ${globals.users![index]['updatedEmail']}\nWorks in: ${globals.users![index]['department']}'),
+                      'Email: ${listWithNoUser[index]['updatedEmail']}\nWorks in: ${listWithNoUser[index]['department']}'),
               onTap: () {
-                if (!selected.contains(globals.users![index])) {
-                  selected.add(globals.users![index]);
-                } else if (selected.contains(globals.users![index])) {
-                  selected.remove(globals.users![index]);
+                if (!selected.contains(listWithNoUser[index])) {
+                  selected.add(listWithNoUser[index]);
+                } else if (selected.contains(listWithNoUser[index])) {
+                  selected.remove(listWithNoUser[index]);
                 }
 
                 setState(() {});

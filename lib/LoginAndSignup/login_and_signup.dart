@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String? _departmentValidator(String? name) {
     String? error;
     if (name == null || name == "") {
-      error = "Department is required!";
+      error = "Role is required!";
     }
     return error;
   }
@@ -264,7 +264,7 @@ class _LoginScreenState extends State<LoginScreen> {
         UserFormField(
           keyName: 'department',
           userType: LoginUserType.name,
-          displayName: "Department",
+          displayName: "Role",
           fieldValidator: _departmentValidator,
           icon: const Icon(Icons.work),
         ),
